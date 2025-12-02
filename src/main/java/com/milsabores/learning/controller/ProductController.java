@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.milsabores.learning.model.Producto;
 import com.milsabores.learning.repository.ProductRepository;
 
+import jakarta.validation.Valid;
+
 
 /*
  * Recibe la solicitud del frontend (GET, POST, etc.)
@@ -50,7 +52,7 @@ public class ProductController {
 
     // 3. Endpoint: POST /productos (Crear nuevo)
     @PostMapping
-    public ResponseEntity<Producto> crearProducto(@RequestBody Producto nuevoProducto) {
+    public ResponseEntity<Producto> crearProducto(@Valid @RequestBody Producto nuevoProducto) {
         
         // Guardamos el producto en la base de datos (el ID se genera solo)
         Producto productoGuardado = productRepository.save(nuevoProducto);
@@ -63,7 +65,7 @@ public class ProductController {
 
     // 4. Endpoint: PUT /productos/{id} (Actualizar un producto existente)
     @PatchMapping("/{id}")
-    public ResponseEntity<Producto> actualizarProducto(@PathVariable Long id, @RequestBody Producto productoActualizado) {
+    public ResponseEntity<Producto> actualizarProducto(@Valid @PathVariable Long id, @RequestBody Producto productoActualizado) {
         
         // Primero verificamos si existe
         if (!productRepository.existsById(id)) {
