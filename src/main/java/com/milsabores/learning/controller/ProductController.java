@@ -14,24 +14,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.milsabores.learning.model.Producto;
-import com.milsabores.learning.service.ProductService;
+import com.milsabores.learning.service.ProductoService;
 
 import jakarta.validation.Valid;
 
 
-/*
- * Recibe la solicitud del frontend (GET, POST, etc.)
- * Pide los datos al repositorio
- * Recibe los datos y los entrega en formato JSON
- */
 @RestController
 @RequestMapping("/productos") // Todas las rutas de esta clase empiezan con /productos
 public class ProductController {
 
-    private final ProductService productService;
+    private final ProductoService productService;
 
     // Utilizamos un constructor para la Inyección de Dependencias
-    public ProductController(ProductService productService) {
+    public ProductController(ProductoService productService) {
         this.productService = productService;
     }
 
