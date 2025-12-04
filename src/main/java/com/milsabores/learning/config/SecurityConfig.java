@@ -30,12 +30,16 @@ public class SecurityConfig {
             
             // 3. Configurar Rutas
             .authorizeHttpRequests(auth -> auth
-                // RUTAS PÚBLICAS (Cualquiera puede entrar)
-                .requestMatchers("/auth/**").permitAll()      // Login y Registro
-                .requestMatchers("/productos/**").permitAll() // Ver catálogo (GET) - Ojo: esto permite POST también por ahora
-                .requestMatchers("/error").permitAll()
+                // Rutas Públicas
+                .requestMatchers("/auth/**").permitAll()
+                .requestMatchers("/productos/**").permitAll()
                 
-                // RUTAS PRIVADAS (Todo lo demás requiere autenticación)
+                // --- AGREGA ESTAS DOS LÍNEAS ---
+                .requestMatchers("/pedidos/**").permitAll()  // Permitir crear y ver pedidos
+                .requestMatchers("/usuarios/**").permitAll() // Permitir admin de usuarios
+                // -------------------------------
+                
+                .requestMatchers("/error").permitAll()
                 .anyRequest().authenticated()
             )
             
