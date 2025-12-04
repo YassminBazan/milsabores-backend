@@ -35,10 +35,8 @@ public class SecurityConfig {
                 .requestMatchers("/pedidos/**").permitAll()
                 .requestMatchers("/usuarios/**").permitAll()
                 
-                // --- AGREGA ESTA LÍNEA ---
                 .requestMatchers("/blog/**").permitAll() 
-                // -------------------------
-                
+                .requestMatchers("/media/**").permitAll()                
                 .requestMatchers("/error").permitAll()
                 .anyRequest().authenticated()
             )
