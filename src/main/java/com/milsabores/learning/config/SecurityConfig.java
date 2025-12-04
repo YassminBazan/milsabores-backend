@@ -34,7 +34,6 @@ public class SecurityConfig {
                 .requestMatchers("/auth/**").permitAll()
                 .requestMatchers("/productos/**").permitAll()
                 
-                // --- AGREGA ESTAS DOS LÍNEAS ---
                 .requestMatchers("/pedidos/**").permitAll()  // Permitir crear y ver pedidos
                 .requestMatchers("/usuarios/**").permitAll() // Permitir admin de usuarios
                 // -------------------------------

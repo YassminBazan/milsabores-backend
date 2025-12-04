@@ -49,13 +49,15 @@ public class AuthController {
         Usuario user = usuarioRepository.findByEmail(email).orElse(null);
 
         if (user == null) {
-            return ResponseEntity.badRequest().body("Usuario no encontrado.");
+            // Devolvemos un JSON de error
+            return ResponseEntity.badRequest().body(Map.of("error", "Usuario no encontrado"));
         }
 
         if (!passwordEncoder.matches(password, user.getPassword())) {
-            return ResponseEntity.badRequest().body("Contraseña incorrecta.");
+            // Devolvemos un JSON de error
+            return ResponseEntity.badRequest().body(Map.of("error", "Contraseña incorrecta"));
         }
-
-        return ResponseEntity.ok("Login exitoso (Usuario: " + user.getNombre() + ")");
+        user.setPassword(""); 
+        return ResponseEntity.ok(user);
     }
 }
