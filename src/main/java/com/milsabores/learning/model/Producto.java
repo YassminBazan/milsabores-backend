@@ -26,8 +26,7 @@ public class Producto {
 
     // En el frontend lo llamamos 'codigo', pero el formulario envía 'sku'.
     // Spring Boot mapeará automáticamente el campo 'sku' del JSON a este campo.
-    private String sku; 
-
+    private String codigo;
     @NotBlank(message = "El nombre es obligatorio")
     private String nombre;
 
@@ -48,11 +47,10 @@ public class Producto {
     @Min(value = 0, message = "El stock debe ser un número positivo")
     private Integer stock;
 
+    @Column(columnDefinition = "LONGTEXT")
     private String imagen; // Ruta relativa o URL de la imagen
 
     private String estado; // 'activo' o 'inactivo'
-
-    // --- NUEVOS CAMPOS (Para coincidir con el Frontend) ---
 
     private String icono; // Ej: "fa-solid fa-cake"
     

@@ -30,13 +30,14 @@ public class SecurityConfig {
             
             // 3. Configurar Rutas
             .authorizeHttpRequests(auth -> auth
-                // Rutas Públicas
                 .requestMatchers("/auth/**").permitAll()
                 .requestMatchers("/productos/**").permitAll()
+                .requestMatchers("/pedidos/**").permitAll()
+                .requestMatchers("/usuarios/**").permitAll()
                 
-                .requestMatchers("/pedidos/**").permitAll()  // Permitir crear y ver pedidos
-                .requestMatchers("/usuarios/**").permitAll() // Permitir admin de usuarios
-                // -------------------------------
+                // --- AGREGA ESTA LÍNEA ---
+                .requestMatchers("/blog/**").permitAll() 
+                // -------------------------
                 
                 .requestMatchers("/error").permitAll()
                 .anyRequest().authenticated()
