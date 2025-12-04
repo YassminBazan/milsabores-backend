@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.milsabores.learning.model.Producto;
-import com.milsabores.learning.repository.ProductRepository;
+import com.milsabores.learning.service.ProductService;
 
 import jakarta.validation.Valid;
 
@@ -28,24 +28,24 @@ import jakarta.validation.Valid;
 @RequestMapping("/productos") // Todas las rutas de esta clase empiezan con /productos
 public class ProductController {
 
-    private final ProductRepository productRepository;
+    private final ProductService productService;
 
     // Utilizamos un constructor para la Inyección de Dependencias
-    public ProductController(ProductRepository productRepository) {
-        this.productRepository = productRepository;
+    public ProductController(ProductService productService) {
+        this.productService = productService;
     }
 
     // 1. Endpoint: GET /productos (Listar todos)
     @GetMapping
     public List<Producto> obtenerTodos() {
         // Equivalente al SELECT * FROM productos
-        return productRepository.findAll();
+        return productService.listarTodos();
     }
 
     // 2. Endpoint: GET /productos/{id} (Obtener uno solo)
     @GetMapping("/{id}")
     public ResponseEntity<Producto> obtenerPorId(@PathVariable Long id) {
-        return productRepository.findById(id)
+        return productService.buscarPorId(id)
                 .map(producto -> ResponseEntity.ok(producto)) // Si existe: 200 OK
                 .orElse(ResponseEntity.notFound().build());   // Si no: 404 Not Found
     }
@@ -55,7 +55,7 @@ public class ProductController {
     public ResponseEntity<Producto> crearProducto(@Valid @RequestBody Producto nuevoProducto) {
         
         // Guardamos el producto en la base de datos (el ID se genera solo)
-        Producto productoGuardado = productRepository.save(nuevoProducto);
+        Producto productoGuardado = productService.guardar(nuevoProducto);
 
         // Devolvemos el producto guardado con código 201 CREATED
         return ResponseEntity
@@ -68,7 +68,7 @@ public class ProductController {
     public ResponseEntity<Producto> actualizarProducto(@Valid @PathVariable Long id, @RequestBody Producto productoActualizado) {
         
         // Primero verificamos si existe
-        if (!productRepository.existsById(id)) {
+        if (!productService.existe(id)) {
             return ResponseEntity.notFound().build();
         }
 
@@ -76,7 +76,7 @@ public class ProductController {
         productoActualizado.setId(id);
 
         // Al usar .save() con un ID que ya existe, JPA hace un UPDATE en vez de INSERT
-        Producto productoGuardado = productRepository.save(productoActualizado);
+        Producto productoGuardado = productService.guardar(productoActualizado);
         
         return ResponseEntity.ok(productoGuardado);
     }
@@ -85,11 +85,11 @@ public class ProductController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminarProducto(@PathVariable Long id) {
         
-        if (!productRepository.existsById(id)) {
+        if (!productService.existe(id)) {
             return ResponseEntity.notFound().build();
         }
 
-        productRepository.deleteById(id);
+        productService.eliminar(id);
         
         // Devolvemos 204 No Content (Estándar para borrados exitosos: "Lo hice, no hay nada más que decir")
         return ResponseEntity.noContent().build();

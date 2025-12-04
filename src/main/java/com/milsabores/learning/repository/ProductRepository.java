@@ -19,4 +19,7 @@ public interface ProductRepository extends JpaRepository<Producto, Long> {
      .delete()   -> Borra
     
     */
+
+     //aqui va el metodo buscar por nombre y por sku para vallidar que no exista antes de guardalo
+     
 }
