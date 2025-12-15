@@ -23,7 +23,7 @@ public class DataSeeder implements CommandLineRunner {
     private UsuarioRepository usuarioRepository;
 
     @Autowired
-    private BlogPostRepository blogPostRepository; 
+    private BlogPostRepository blogPostRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -112,7 +112,8 @@ public class DataSeeder implements CommandLineRunner {
             // 11. Brownie Sin Gluten
             crearProducto("PG001", "sin-gluten", "Brownie Sin Gluten", 4000,
                     "Rico y denso, este brownie es perfecto para quienes necesitan evitar el gluten.",
-                    "img/brownie-sin-gluten-denso-chocolate.jpg", "fa-solid fa-wheat-awn-circle-exclamation", false, 20);
+                    "img/brownie-sin-gluten-denso-chocolate.jpg", "fa-solid fa-wheat-awn-circle-exclamation", false,
+                    20);
 
             // 12. Pan Sin Gluten
             crearProducto("PG002", "sin-gluten", "Pan Sin Gluten", 3500,
@@ -149,38 +150,38 @@ public class DataSeeder implements CommandLineRunner {
             crearBlog("Secretos para el Bizcocho Perfecto", "recetas", "2025-01-15", "Chef María González",
                     "img/blog-bizcocho-perfecto.jpg",
                     "Descubre los trucos profesionales para lograr un bizcocho esponjoso y delicioso en casa.",
-                    "<h4>Los Fundamentos del Bizcocho Perfecto</h4><p>Un bizcocho perfecto es la base de cualquier torta exitosa...</p>");
+                    "<h4>Los Fundamentos del Bizcocho Perfecto</h4><p>Un bizcocho perfecto es la base de cualquier torta exitosa. Después de 20 años en la pastelería, he aprendido que la clave está en los detalles.</p><h4>Ingredientes Esenciales</h4><ul><li>Huevos a temperatura ambiente</li><li>Mantequilla de calidad, sin sal</li><li>Harina tamizada dos veces</li><li>Azúcar refinada</li><li>Polvo de hornear fresco</li></ul><h4>Técnica de Mezclado</h4><p>El secreto está en el orden: primero crema la mantequilla con el azúcar hasta que esté pálida y esponjosa. Luego incorpora los huevos uno a uno, y finalmente alterna entre los ingredientes secos y líquidos.</p><p>La temperatura del horno es crucial: 180°C es ideal para la mayoría de bizcochos. Y recuerda, ¡nunca abras el horno durante los primeros 20 minutos!</p>");
 
             crearBlog("Nueva Sucursal en Concepción Centro", "noticias", "2025-01-10", "Equipo Mil Sabores",
                     "img/blog-nueva-sucursal.jpg",
                     "Estamos emocionados de anunciar la apertura de nuestra nueva sucursal en el corazón de Concepción.",
-                    "<h4>¡Gran Apertura!</h4><p>Después de meses de preparación, finalmente abrimos nuestras puertas...</p>");
+                    "<h4>¡Gran Apertura!</h4><p>Después de meses de preparación, finalmente abrimos nuestras puertas en Concepción Centro. Esta nueva ubicación nos permite estar más cerca de nuestros clientes del centro de la ciudad.</p><h4>Qué Encontrarás</h4><ul><li>Toda nuestra línea de productos frescos diariamente</li><li>Servicio de café y té premium</li><li>Área de degustación</li><li>Servicio de pedidos personalizados</li></ul><h4>Horarios de Atención</h4><p>Lunes a Viernes: 8:00 AM - 8:00 PM</p><p>Sábados y Domingos: 9:00 AM - 9:00 PM</p><p>¡Te esperamos para celebrar juntos esta nueva etapa!</p>");
 
             crearBlog("Cómo Conservar Tortas Frescas por Más Tiempo", "consejos", "2025-01-08", "Chef Carlos Mendoza",
                     "img/blog-conservar-tortas.jpg",
                     "Tips profesionales para mantener tus tortas frescas y deliciosas durante más días.",
-                    "<h4>La Importancia del Almacenamiento</h4><p>Una torta bien conservada puede mantener su frescura...</p>");
+                    "<h4>La Importancia del Almacenamiento</h4><p>Una torta bien conservada puede mantener su frescura y sabor por varios días. La clave está en controlar la humedad y la temperatura.</p><h4>Métodos de Conservación</h4><ul><li><strong>Refrigeración:</strong> Ideal para tortas con crema o rellenos perecederos</li><li><strong>Temperatura ambiente:</strong> Perfecta para bizcochos simples y tortas secas</li><li><strong>Congelación:</strong> Para conservación a largo plazo</li></ul><h4>Consejos Profesionales</h4><p>Siempre envuelve la torta en film plástico o guárdala en un recipiente hermético. Si tiene decoraciones delicadas, usa palillos para evitar que el envoltorio las toque.</p><p>Para tortas con fondant, evita la refrigeración ya que puede causar condensación y arruinar la decoración.</p>");
 
             crearBlog("Taller de Repostería para Principiantes", "eventos", "2025-01-05", "Equipo Mil Sabores",
                     "img/blog-taller-reposteria.jpg",
                     "Únete a nuestro taller mensual donde aprenderás las técnicas básicas de la repostería.",
-                    "<h4>¡Aprende con los Expertos!</h4><p>Cada último sábado del mes realizamos talleres...</p>");
+                    "<h4>¡Aprende con los Expertos!</h4><p>Cada último sábado del mes realizamos talleres de repostería para principiantes. Es una oportunidad única de aprender directamente de nuestros chefs profesionales.</p><h4>Qué Aprenderás</h4><ul><li>Técnicas básicas de mezclado</li><li>Preparación de cremas y rellenos</li><li>Decoración básica con manga pastelera</li><li>Secretos para hornear perfecto</li></ul><h4>Incluye</h4><p>Todos los ingredientes y herramientas necesarias, recetario digital, y por supuesto, ¡te llevas a casa todo lo que prepares!</p><h4>Inscripciones</h4><p>Cupos limitados a 12 personas. Reserva tu lugar llamando al +56 9 99999999 o visitando cualquiera de nuestras sucursales.</p><p>Próximo taller: 27 de Enero, 10:00 AM - 2:00 PM</p>");
 
             crearBlog("Ganache de Chocolate: La Receta Definitiva", "recetas", "2025-01-03", "Chef Ana Rodríguez",
                     "img/blog-ganache-chocolate.jpg",
                     "Aprende a preparar el ganache de chocolate perfecto para tus tortas y postres.",
-                    "<h4>El Arte del Ganache</h4><p>El ganache es una de las preparaciones más versátiles...</p>");
+                    "<h4>El Arte del Ganache</h4><p>El ganache es una de las preparaciones más versátiles en pastelería. Puede usarse como relleno, cobertura o incluso para hacer trufas.</p><h4>Ingredientes (Proporción 1:1)</h4><ul><li>200g de chocolate negro (70% cacao)</li><li>200ml de crema de leche (35% grasa)</li><li>1 cucharada de mantequilla (opcional)</li></ul><h4>Preparación Paso a Paso</h4><p>1. Pica el chocolate finamente y colócalo en un bowl.</p><p>2. Calienta la crema hasta que esté a punto de hervir.</p><p>3. Vierte la crema caliente sobre el chocolate y deja reposar 2 minutos.</p><p>4. Mezcla desde el centro hacia afuera hasta obtener una mezcla homogénea.</p><p>5. Agrega la mantequilla para dar brillo extra.</p><h4>Consejos de Experto</h4><p>Para un ganache más firme (ideal para coberturas), usa proporción 2:1 (chocolate:crema). Para un ganache más líquido (ideal para rellenos), usa proporción 1:2.</p>");
 
             crearBlog("Nuevos Sabores de Temporada", "noticias", "2025-01-01", "Equipo Mil Sabores",
                     "img/blog-sabores-temporada.jpg",
                     "Descubre nuestros nuevos sabores inspirados en los frutos de la temporada de verano.",
-                    "<h4>Sabores que Celebran el Verano</h4><p>Con la llegada del verano, hemos creado una línea especial...</p>");
+                    "<h4>Sabores que Celebran el Verano</h4><p>Con la llegada del verano, hemos creado una línea especial de productos que capturan la esencia de la temporada.</p><h4>Nuevos Productos</h4><ul><li><strong>Torta de Frutillas y Crema:</strong> Con frutillas frescas de la región</li><li><strong>Mousse de Mango:</strong> Tropical y refrescante</li><li><strong>Cheesecake de Frambuesas:</strong> El equilibrio perfecto entre dulce y ácido</li><li><strong>Helado Artesanal de Chirimoya:</strong> Un sabor único y chileno</li></ul><h4>Disponibilidad</h4><p>Estos sabores especiales estarán disponibles solo durante los meses de verano (Diciembre a Marzo). ¡No te los pierdas!</p><p>Visita nuestras sucursales o haz tu pedido online para disfrutar de estos sabores únicos de temporada.</p>");
 
             crearBlog("Alianza Culinaria: Mil Sabores y los Futuros Talentos del DuocUC", "eventos", "2025-02-28",
                     "Equipo Mil Sabores",
                     "img/blog-duocuc.jpg",
                     "Descubre cómo nuestra pastelería se une a los estudiantes de gastronomía del DuocUC.",
-                    "<h4>Cultivando el Sabor del Mañana</h4><p>En Pastelería Mil Sabores, siempre hemos creído en el poder de la tradición...</p>");
+                    "<h4>Cultivando el Sabor del Mañana: Una Alianza con DuocUC</h4><p>En Pastelería Mil Sabores, siempre hemos creído en el poder de la tradición, pero también en la importancia de la innovación y el apoyo a las nuevas generaciones. Por ello, nos complace enormemente anunciar nuestra reciente alianza con la prestigiosa escuela de Gastronomía de DuocUC.</p><h4>Un Puente entre la Academia y la Cocina Profesional</h4><p>Esta colaboración busca tender un puente vital entre la formación académica de excelencia que ofrece DuocUC y la experiencia práctica en un entorno profesional de alta demanda. Los estudiantes de los últimos años de la carrera de Gastronomía tendrán la oportunidad de realizar pasantías y proyectos colaborativos en nuestras cocinas.</p><h4>Innovación y Frescura en Cada Creación</h4><p>La juventud, el entusiasmo y las nuevas perspectivas de los estudiantes del DuocUC serán un ingrediente esencial para el desarrollo de nuevos productos y la optimización de nuestros procesos. Esperamos que esta sinergia nos permita explorar combinaciones de sabores audaces y técnicas vanguardistas, siempre manteniendo la calidad y el cariño que nos caracterizan.</p><h4>Invitación a la Comunidad</h4><p>Estamos seguros de que esta alianza no solo beneficiará a los futuros talentos de la gastronomía chilena, sino que también enriquecerá la oferta de Mil Sabores con ideas frescas y creativas. Invitamos a nuestra comunidad a estar atentos a las novedades y deliciosas sorpresas que surgirán de esta emocionante colaboración.</p><p>¡Juntos, cocinaremos el futuro de la pastelería!</p>");
 
             System.out.println("--- Blogs Cargados ---");
         }
@@ -194,7 +195,7 @@ public class DataSeeder implements CommandLineRunner {
         p.setCodigo(codigo);
         p.setCategoria(categoria);
         p.setNombre(nombre);
-        p.setPrecio(precio); 
+        p.setPrecio(precio);
         p.setDescripcion(descripcion);
         p.setImagen(imagen);
         p.setIcono(icono);
@@ -204,7 +205,7 @@ public class DataSeeder implements CommandLineRunner {
         p.setEstado(stock > 0 ? "disponible" : "agotado"); // Si stock es 0, nace agotado
 
         if (personalizable) {
-            p.setBasePricePerPersona(2500); 
+            p.setBasePricePerPersona(2500);
             p.setMinPersonas(10);
             p.setMaxPersonas(50);
             p.setColoresGlaseado(List.of("blanco", "rosa", "azul", "chocolate"));

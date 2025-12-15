@@ -38,13 +38,15 @@ public class SecurityConfig {
                 .requestMatchers("/blog/**").permitAll() 
                 .requestMatchers("/media/**").permitAll()                
                 .requestMatchers("/error").permitAll()
+                
+                // --- AGREGAR ESTO PARA SWAGGER ---
+                .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
                 .anyRequest().authenticated()
             )
             
             // 4. No guardar sesión en memoria (Stateless)
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
             
-            // (Más adelante aquí añadiremos el filtro de JWT)
 
         return http.build();
     }
