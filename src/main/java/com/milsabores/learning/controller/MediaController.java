@@ -27,7 +27,6 @@ import org.springframework.web.multipart.MultipartFile;
 @CrossOrigin(origins = "http://localhost:5173") 
 public class MediaController {
 
-    // Guardaremos las fotos en una carpeta "uploads" en la raíz del proyecto
     private final Path rootLocation = Paths.get("uploads");
 
     public MediaController() {
@@ -38,19 +37,14 @@ public class MediaController {
         }
     }
 
-    // --- 2. SUBIR IMAGEN (POST) ---
     @PostMapping("/upload")
     public Map<String, String> uploadFile(@RequestParam("file") MultipartFile file) {
         try {
-            // Generamos nombre único para no sobrescribir fotos con el mismo nombre
             String filename = UUID.randomUUID().toString() + "_" + file.getOriginalFilename();
             
-            // Guardamos en el disco
             Files.copy(file.getInputStream(), this.rootLocation.resolve(filename));
             
             Map<String, String> response = new HashMap<>();
-            // Devolvemos la ruta para que React la guarde en la BD
-            // Ejemplo: "media/foto123.jpg"
             response.put("url", "media/" + filename); 
             
             return response;
@@ -59,7 +53,6 @@ public class MediaController {
         }
     }
 
-    // --- 3. VER IMAGEN (GET) - ¡ESTO FALTABA EN EL TUYO! ---
     @GetMapping("/{filename:.+}")
     public ResponseEntity<Resource> getFile(@PathVariable String filename) {
         try {
@@ -68,7 +61,6 @@ public class MediaController {
 
             if (resource.exists() || resource.isReadable()) {
                 return ResponseEntity.ok()
-                        // Esto le dice al navegador: "Es una imagen, muéstrala"
                         .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + resource.getFilename() + "\"")
                         .body(resource);
             } else {

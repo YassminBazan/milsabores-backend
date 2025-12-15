@@ -37,7 +37,7 @@ public class Producto {
     @Min(value = 0, message = "El descuento no puede ser negativo")
     private Integer descuento;
 
-    @Column(length = 1000) // Ampliamos el tamaño para descripciones largas
+    @Column(length = 1000) 
     private String descripcion;
 
     @NotBlank(message = "La categoria es obligatoria")
